@@ -41,8 +41,6 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
     software-properties-common \
     ffmpeg \
     imagemagick \
-    sqlite3 \
-    sqlitebrowser \
     jq \
     yq \
     tmux \
@@ -65,9 +63,6 @@ RUN curl -fsSL https://deb.nodesource.com/setup_24.x | bash - \
     && apt-get install -y nodejs \
     && npm install -g npm@latest yarn pm2 nodemon typescript eslint prettier \
     && rm -rf /var/lib/apt/lists/*
-
-RUN curl -Lo /usr/local/bin/ollama https://github.com/ollama/ollama/releases/latest/download/ollama-linux-amd64 \
-    && chmod +x /usr/local/bin/ollama
 
 RUN echo "root:2010" | chpasswd
 
