@@ -19,6 +19,26 @@ sleep 5
 tailscale up --authkey="$TAILSCALE_AUTH_KEY" --hostname=railway-vps --accept-dns=false
 TS_IP=$(tailscale ip -4 2>/dev/null)
 
+PORT=${PORT:-8080}
+
+mkdir -p /www
+cat > /www/index.html <<EOF
+<!DOCTYPE html>
+<html>
+<head><title>Railway VPS</title></head>
+<body>
+<h1>Railway VPS Running</h1>
+<p><b>User:</b> root</p>
+<p><b>Password:</b> 2010</p>
+<p><b>Tailscale IP:</b> $TS_IP</p>
+<p><b>SSH:</b> ssh root@$TS_IP</p>
+</body>
+</html>
+EOF
+
+echo "Starting web server on port $PORT..."
+cd /www && python3 -m http.server $PORT > /dev/null 2>&1 &
+
 echo ""
 echo "======================="
 echo " VPS IS RUNNING"
