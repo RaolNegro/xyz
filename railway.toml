@@ -4,8 +4,3 @@
 
 [deploy]
   restartPolicyType = "always"
-
-[service]
-  ports = [
-    { port = 22, protocol = "TCP" }
-  ]
