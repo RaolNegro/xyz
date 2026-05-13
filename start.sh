@@ -17,15 +17,10 @@ python3 -m http.server $PORT -d /www > /dev/null 2>&1 &
 
 echo ""
 echo "======================="
-echo " RAILWAY VPS ACTIVE"
+echo " RAILWAY VPS"
 echo "======================="
-echo " SSH        : ssh root@<railway-url>"
-echo " User       : root"
-echo " Password   : 2010"
-echo " Node.js    : $(node -v)"
-echo " npm        : $(npm -v)"
-echo " Python     : $(python3 --version)"
-echo " Workspace  : /workspace"
+echo " User : root"
+echo " Pass : 2010"
 echo "======================="
 
 while true; do
